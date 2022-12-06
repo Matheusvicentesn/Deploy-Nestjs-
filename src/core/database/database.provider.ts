@@ -7,11 +7,11 @@ export const databaseProviders = [
     useFactory: async () => {
       const dataSource = new DataSource({
         type: 'postgres',
-        host: 'babar.db.elephantsql.com',
+        host: process.env.DB_HOST,
         port: 5432,
-        username: 'esafqzrj',
-        password: 'i_YtsPfqBJIGNY_XGm0dBTCDq61ccHp-',
-        database: 'esafqzrj',
+        username: process.env.USERNAMEDB,
+        password: process.env.PASSWORDDB,
+        database: process.env.DB_DATABASE,
         synchronize: true,
         entities: [__dirname + '/../../**/**/*.entity{.ts,.js}'],
       });
